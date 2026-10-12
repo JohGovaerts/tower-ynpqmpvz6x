@@ -223,6 +223,67 @@ details.house[open] summary::before { content: '▾ '; }
 .coach-sheet { border-top-color: var(--ember); }
 .scores.rec td { font-size: 13.5px; padding: 6px 3px; }
 
+/* ---------- card faces ---------- */
+.cardbtn { background: none; border: 0; padding: 0; margin: 0; cursor: pointer; flex: none; text-align: left; border-radius: 11px; }
+.cface { display: flex; flex-direction: column; overflow: hidden; border-radius: 10px; border: 2px solid var(--cc); color: var(--fg);
+  background: linear-gradient(180deg, var(--cd) 0%, #161a22 75%);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--cd) 70%, #12151c) 0%, #161a22 70%); box-shadow: 0 4px 12px rgba(0, 0, 0, .35); transition: transform .15s ease, box-shadow .15s ease; }
+.cf-s { width: 104px; height: 150px; }
+.cf-m { width: 150px; min-height: 216px; }
+.cf-l { width: 260px; flex: none; }
+.cf-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 4px; padding: 5px 6px 4px; min-height: 36px; }
+.cf-name { font-family: var(--f-display); font-size: 15px; line-height: 1.05; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.cf-l .cf-name { font-size: 22px; }
+.cf-cost { display: flex; gap: 2px; flex: none; }
+.cb { display: inline-grid; place-items: center; min-width: 20px; height: 20px; padding: 0 4px; border-radius: 999px; font-size: 12px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.cb.gold { background: #e2b33c; color: #2a1c00; }
+.cb.magic { background: #8b5cf6; color: #fff; }
+.cb.free { background: rgba(233, 228, 214, .14); color: var(--muted); font-weight: 400; font-size: 11px; }
+.cf-l .cb { min-width: 26px; height: 26px; font-size: 14px; }
+.cf-art { aspect-ratio: 16 / 10; display: grid; place-items: center; overflow: hidden; background: radial-gradient(circle at 50% 45%, var(--cc) 20%, var(--cd) 95%); background: radial-gradient(circle at 50% 45%, color-mix(in srgb, var(--cc) 75%, #fff) 0%, var(--cc) 30%, var(--cd) 95%); border-top: 1px solid rgba(0, 0, 0, .35); border-bottom: 1px solid rgba(0, 0, 0, .35); }
+.cf-art img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.cf-art .emb { font-size: 34px; filter: drop-shadow(0 2px 3px rgba(0, 0, 0, .45)); }
+.cf-m .cf-art .emb { font-size: 44px; }
+.cf-l .cf-art .emb { font-size: 72px; }
+.cf-type { display: flex; justify-content: space-between; gap: 4px; padding: 4px 6px; font-size: 10px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+.cf-l .cf-type { font-size: 11.5px; padding: 6px 10px; }
+.cf-flag { color: var(--muted); }
+.cf-flag.ok { color: var(--ok); }
+.cf-when { margin: 0 10px; align-self: flex-start; font-size: 11.5px; padding: 2px 8px; border-radius: 999px; background: rgba(233, 228, 214, .1); }
+.cf-text { padding: 6px 8px 8px; font-size: 12px; line-height: 1.32; }
+.cf-m .cf-text { display: -webkit-box; -webkit-line-clamp: 7; -webkit-box-orient: vertical; overflow: hidden; }
+.cf-l .cf-text { font-size: 14.5px; line-height: 1.4; padding: 8px 10px 6px; }
+.cf-army { margin-top: auto; padding: 6px 10px 8px; font-size: 11px; color: var(--muted); border-top: 1px solid rgba(233, 228, 214, .08); }
+.cface.exh { opacity: .55; transform: rotate(-3deg); }
+.cface { position: relative; }
+.cface.ready { box-shadow: 0 0 12px 1px rgba(103, 194, 122, .55), 0 4px 12px rgba(0, 0, 0, .35); }
+.cface.ready::after { content: '▶'; position: absolute; left: 50%; bottom: -1px; transform: translateX(-50%); font-size: 9px; line-height: 14px; padding: 0 8px; border-radius: 8px 8px 0 0; background: var(--ok); color: #0d1a10; }
+.cf-l.ready::after, .cf-m.ready::after { display: none; }
+.cface.sel { transform: translateY(-6px); box-shadow: 0 0 0 3px #fff, 0 8px 18px rgba(0, 0, 0, .45); }
+.cface.boss { border-style: double; border-width: 3px; }
+.hand { display: flex; gap: 8px; overflow-x: auto; padding: 10px 2px 6px; scroll-snap-type: x proximity; }
+.hand .cardbtn { scroll-snap-align: start; }
+.card-view { display: flex; gap: 12px; align-items: flex-start; flex-wrap: wrap; }
+.cv-side { display: grid; gap: 8px; flex: 1; min-width: 130px; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; justify-items: center; }
+.cthumb { display: grid; place-items: center; width: 36px; height: 50px; border-radius: 5px; border: 1.5px solid var(--cc); overflow: hidden; font-size: 20px; background: radial-gradient(circle, var(--cc) 0%, var(--cd) 100%); }
+.cthumb img { width: 100%; height: 100%; object-fit: cover; }
+.buyrow .g.thumb { display: grid; place-items: center; }
+.banner-art { display: block; width: 100%; max-height: 130px; object-fit: cover; border-radius: 8px; margin-bottom: 6px; }
+.card-sheet .card-view { justify-content: center; }
+.card-sheet .cv-side { min-width: 200px; max-width: 320px; }
+@media (max-width: 600px) {
+  .cf-s { width: 86px; height: 126px; }
+  .cf-s .cf-name { font-size: 13px; }
+  .cf-s .cf-art .emb { font-size: 28px; }
+  .cf-s .cf-type { font-size: 9px; padding: 3px 5px; }
+  .cf-s .cf-flag { display: none; }
+  .cf-s .cf-top { min-height: 32px; padding: 4px 5px 3px; }
+  .cf-s .cb { min-width: 18px; height: 18px; font-size: 11px; }
+}
+
+.cf-s .cf-flag { display: none; }
+
 </style>
 </head>
 <body>
@@ -4053,13 +4114,16 @@ let tokEls = {};
 // ---------- custom art (optional files in an assets/ folder next to index.html) ----------
 const ART = { map: {}, cfg: { tokenShape: 'circle' }, done: false, tried: 0 };
 function artKeys() {
-  const k = ['board', 'ladder'];
+  const k = ['board', 'ladder', 'wall', 'wall-keep'];
   for (const a of ARMY_ORDER) for (const t in ARMIES[a].units) k.push(`${a}-${t}`);
   for (const t in DEFENDERS) k.push(`def-${t}`);
   k.push('def-peasant');
   for (const t in HEROES) k.push(`hero-${t}`);
   for (const b in BUILDING_GLYPH) k.push(`bldg-${b}`);
-  const tok = k.filter(x => x !== 'board' && x !== 'ladder' && !x.startsWith('bldg-'));
+  for (const c in CARDS) k.push(`card-${c}`);
+  for (const c in BOSS_CARDS) k.push(`boss-${c}`);
+  for (const c in EVENTS) k.push(`event-${c}`);
+  const tok = k.filter(x => !['board', 'ladder', 'wall', 'wall-keep'].includes(x) && !/^(bldg|card|boss|event)-/.test(x));
   return { all: k.concat(tok.map(x => x + '-flipped')), tok };
 }
 function unitArtKey(u) { return u.owner === 'D' ? (HEROES[u.type] ? 'hero-' : 'def-') + u.type : `${u.army}-${u.type}`; }
@@ -4069,7 +4133,7 @@ function probeArt(key) {
     const exts = ['svg', 'png'];
     const next = i => {
       if (i >= exts.length) return res(null);
-      const url = `assets/${key.startsWith('board') ? '' : key.startsWith('bldg-') ? 'buildings/' : key === 'ladder' ? '' : 'tokens/'}${key}.${exts[i]}`;
+      const url = `assets/${/^(card|boss|event)-/.test(key) ? 'cards/' : key.startsWith('bldg-') ? 'buildings/' : ['board', 'ladder', 'wall', 'wall-keep'].includes(key) ? '' : 'tokens/'}${key}.${exts[i]}`;
       const img = new Image();
       img.onload = () => res(url);
       img.onerror = () => next(i + 1);
@@ -4087,7 +4151,7 @@ async function loadArt() {
   ART.tried = plain.length;
   const found = await Promise.all(plain.map(k => probeArt(k).then(u => [k, u])));
   for (const [k, u] of found) if (u) ART.map[k] = u;
-  const flips = await Promise.all(plain.filter(k => ART.map[k] && !k.startsWith('bldg-') && k !== 'board' && k !== 'ladder').map(k => probeArt(k + '-flipped').then(u => [k + '-flipped', u])));
+  const flips = await Promise.all(plain.filter(k => ART.map[k] && !/^(bldg|card|boss|event)-/.test(k) && !['board', 'ladder', 'wall', 'wall-keep'].includes(k)).map(k => probeArt(k + '-flipped').then(u => [k + '-flipped', u])));
   for (const [k, u] of flips) if (u) ART.map[k] = u;
   ART.done = true;
   document.body.classList.toggle('art-square', ART.cfg.tokenShape === 'square'); document.body.classList.toggle('art-none', ART.cfg.tokenShape === 'none');
@@ -4186,7 +4250,19 @@ function renderBoard() {
     const left = W.hp - W.dmg;
     const tipT = W.alive ? `${n.kind === 'kg' ? 'Keep wall' : 'Castle wall'}: ${left}/${W.hp} health` : 'Destroyed wall';
     const tipD = W.alive ? 'Blocks movement. Melee units attack it from the space right in front. A ladder lets units climb over or attack the defender behind it.' : 'Rubble. Units can walk through here freely.';
-    if (W.alive) {
+    const wallArt = W.alive && (artFor(n.kind === 'kg' ? 'wall-keep' : 'wall') || artFor('wall'));
+    if (wallArt) {
+      // your own wall token: drawn along the outer edge of the space, rotated to face outward; health dots on top
+      const T = CS * 0.3, rot = [0, 90, 180, 270][n.side];
+      const cx = n.side === 1 ? x + CS - T / 2 : n.side === 3 ? x + T / 2 : x + CS / 2, cy = n.side === 0 ? y + T / 2 : n.side === 2 ? y + CS - T / 2 : y + CS / 2;
+      walls += `<g transform="translate(${cx},${cy}) rotate(${rot})"><image href="${wallArt}" x="${-CS / 2}" y="${-T / 2}" width="${CS}" height="${T}" preserveAspectRatio="none" style="pointer-events:none"/></g>`;
+      walls += `<rect data-wall="${w}" data-tip-title="${tipT}" data-tip="${tipD}" x="${n.side === 1 ? x + CS - T : x}" y="${n.side === 2 ? y + CS - T : y}" width="${n.side % 2 ? T : CS}" height="${n.side % 2 ? CS : T}" fill="#000" fill-opacity="0"/>`;
+      for (let i = 0; i < W.hp; i++) {
+        const off = (i - (W.hp - 1) / 2) * 9;
+        const px = n.side % 2 ? cx : cx + off, py = n.side % 2 ? cy + off : cy;
+        walls += `<circle cx="${px}" cy="${py}" r="3" fill="${i < left ? '#2b2f39' : '#e0564a'}" stroke="#f4efe2" stroke-width="1" style="pointer-events:none"/>`;
+      }
+    } else if (W.alive) {
       walls += `<rect data-wall="${w}" data-tip-title="${tipT}" data-tip="${tipD}" x="${rx}" y="${ry}" width="${rw}" height="${rh}" rx="2" fill="${n.kind === 'kg' ? '#c9b98f' : '#b9b3a3'}" stroke="#1a1d24" stroke-width="1"/>`;
       for (let i = 0; i < W.hp; i++) {
         const px = rw > rh ? rx + CS / 2 + (i - (W.hp - 1) / 2) * 9 : rx + rw / 2;
@@ -4360,7 +4436,9 @@ async function banner(title, text, kind) {
   const gen = GEN;
   const b = document.createElement('div');
   b.className = 'banner ' + (kind || '');
-  b.innerHTML = `<h3>${esc(title)}</h3><p>${esc(tr(text || ''))}</p>`;
+  const evKey = kind === 'event' ? Object.keys(EVENTS).find(k => EVENTS[k].name === title) : null;
+  const evArt = evKey && artFor('event-' + evKey);
+  b.innerHTML = `${evArt ? `<img class="banner-art" src="${evArt}" alt="">` : ''}<h3>${esc(title)}</h3><p>${esc(tr(text || ''))}</p>`;
   $('.boardwrap').appendChild(b);
   await new Promise(r => { const t = setTimeout(r, 1500 * SPEED[PREF.speed]); b.addEventListener('click', () => { clearTimeout(t); r(); }); });
   b.remove(); guard(gen);  if (kind === 'event' && /Events this turn/.test(title)) await tut('events');
@@ -4503,7 +4581,7 @@ async function humanPickOrder(s, toks) {
 }
 async function humanKeepBoss(s, two, bonus) {
   let keep = two[0];
-  if (two.length > 1) keep = await choose('Boss cards', 'Keep one; the other is discarded. Boss cards don\'t count toward your normal hand.', two.map(k => ({ label: BOSS_CARDS[k].name, sub: tr(BOSS_CARDS[k].tip), v: k })), { cancel: false });
+  if (two.length > 1) keep = await pickCard('Boss cards', 'Keep one; the other is discarded. Boss cards don\'t count toward your normal hand.', two, 'boss');
   else toast(`Boss card: <b>${esc(BOSS_CARDS[keep].name)}</b>`);
   let b = null;
   if (bonus) b = ['arcanist', 'undead'].includes(S.seats[s].army) ? await choose('Boss bonus', 'The Boss takes 1 gold or 1 magic.', [{ label: '+1 gold', v: 'gold' }, { label: '+1 magic', v: 'magic' }], { cancel: false }) : 'gold';
@@ -4518,7 +4596,7 @@ async function humanDiscard(s, lim) {
     const draw = () => {
       if (ps.hand.length <= lim) { sh.close(); res(); return; }
       sh.el.innerHTML = `<h2>Discard</h2><p class="muted" style="margin:0">You may keep ${lim} Power Cards (exhausted cards count). Tap ${ps.hand.length - lim} to discard.</p>
-        <div style="display:grid;gap:8px">${ps.hand.map((k, i) => `<button class="act" data-i="${i}"><b>${esc(CARDS[k].name)}${ps.exhausted.includes(k) ? ' (exhausted)' : ''}</b><small style="display:block">${esc(CARDS[k].tip)}</small></button>`).join('')}</div>`;
+        <div class="card-grid">${ps.hand.map((k, i) => `<button class="cardbtn" data-i="${i}" aria-label="${esc(CARDS[k].name)}">${cardFace(k, { size: 'm', exh: ps.exhausted.includes(k), s })}</button>`).join('')}</div>`;
       sh.el.querySelectorAll('[data-i]').forEach(b => b.onclick = () => { const k = ps.hand.splice(+b.dataset.i, 1)[0]; const ei = ps.exhausted.indexOf(k); if (ei >= 0) ps.exhausted.splice(ei, 1); ps.discard.push(k); draw(); });
     };
     draw();
@@ -4564,7 +4642,7 @@ async function humanBuy(s) {
         <div class="guide">Spend gold on units, ladders and cards. Units deploy on your 3 start spaces next (or a rival's for +1 gold). You have <b>${emptyStarts}</b> empty start space${emptyStarts === 1 ? '' : 's'}${nUnits > emptyStarts ? ` — <b style="color:var(--blood)">more units than free spaces</b> (sacrifice a unit there or deploy into a rival's battlefield)` : ''}.</div>
         ${cards.length ? `<div class="label">Cards you can use now</div>` : ''}
         ${cards.map(k => { const C = CARDS[k]; const kd = kindOf(k); const ok = canAfford(s, k) && !(kd === 'upgrade' && ps.upgrade) && !(kd === 'champ' && tokensLeft(s, 'champ') <= 0);
-          return `<div class="buyrow"><div class="g">${kd === 'champ' ? champ.glyph : kd === 'upgrade' ? '🏛️' : kd === 'equip' ? (EQUIP[C.equip] || {}).glyph || '⚙️' : '🪦'}</div><div><div class="nm">${esc(C.name)} <span class="muted">· ${cardCost(C, s)}</span></div><div class="info">${esc(C.type)}: ${esc(tr(C.tip))}</div></div>
+          return `<div class="buyrow"><div class="g thumb">${cardThumb(k)}</div><div><div class="nm">${esc(C.name)} <span class="muted">· ${cardCost(C, s)}</span></div><div class="info">${esc(C.type)}: ${esc(tr(C.tip))}</div></div>
           <button class="btn small" data-cd="${k}" ${ok ? '' : 'disabled'}>${kd === 'champ' ? 'Summon' : kd === 'gravers' ? 'Play' : 'Buy'}</button></div>`; }).join('')}
         ${canChampCall(s) || (S.bought[s] || []).some(b => b.noCard) ? `<div class="buyrow"><div class="g">${glyphHtml(S.seats[s].army + '-champ', champ.glyph)}</div><div><div class="nm">${esc(champ.name)} <span class="muted">· 6💰 · Champion's Call</span></div><div class="info">${esc(tr(HOUSE_RULES.champCall.tip))}</div></div>
           ${(S.bought[s] || []).some(b => b.noCard) ? `<button class="btn small" data-ccu>Undo</button>` : `<button class="btn small" data-cc ${ps.gold >= 6 ? '' : 'disabled'}>Summon</button>`}</div>` : ''}
@@ -4783,28 +4861,11 @@ async function humanTurn(s) {
           let exh = false;
           if (!c.boss) { const ei = exhaustedLeft.indexOf(c.k); if (ei >= 0) { exh = true; exhaustedLeft.splice(ei, 1); } }
           const ready = c.boss ? bossPlayable(s, c.k) : cardPlayable(s, c.k);
-          h += `<button class="card ${c.boss ? 'boss' : ''} ${exh ? 'exh' : ''} ${ready ? 'ready' : ''}" data-card="${c.boss ? 'b' : 'p'}:${c.k}" data-tip-title="${esc(C.name)}" data-tip="${esc(C.tip)}"><span class="ty">${c.boss ? 'Boss' : esc(C.type)}${exh ? ' · exhausted' : ''}</span><span class="t">${esc(C.name)}</span><span class="c">${c.boss ? 'free' : cardCost(C, s)}</span></button>`;
+          const isSel = UIX.cardInfo && UIX.cardInfo.key === c.k && UIX.cardInfo.boss === c.boss;
+          h += `<button class="cardbtn" data-card="${c.boss ? 'b' : 'p'}:${c.k}" data-tip-title="${esc(C.name)}" data-tip="${esc(C.tip)}" aria-label="${esc(C.name)}">${cardFace(c.k, { kind: c.boss ? 'boss' : 'card', size: 's', exh, ready, sel: isSel, s })}</button>`;
         }
         h += `</div>`;
       } else h += `<div class="muted" style="font-size:13px">No cards in hand.</div>`;
-      if (UIX.cardInfo) {
-        const { key, boss } = UIX.cardInfo;
-        const C = boss ? BOSS_CARDS[key] : CARDS[key];
-        const ok = boss ? bossPlayable(s, key) : cardPlayable(s, key);
-        let why = '';
-        if (!ok && !boss) {
-          if (C.when === 'buy') why = 'Used in the Buy phase.';
-          else if (C.when === 'react') why = 'You\'ll be asked to play it at the right moment (for example just before a battle).';
-          else if (C.when === 'bid') why = 'Played during the Boss vote.';
-          else if (!inHandReady(s, key)) why = 'Exhausted until next turn.';
-          else if (cardGold(s, key) > P.gold) why = 'Not enough gold.';
-          else if (cardMagic(s, key) > P.magic) why = 'Not enough magic.';
-          else if (needsCaster(key) && !hasCaster(s)) why = 'Needs a Caster in play.';
-          else why = 'No valid target right now.';
-        }
-        if (!ok && boss) why = BOSS_CARDS[key].timing === 'beforeTurns' ? 'Played automatically: you\'ll be asked before the first player\'s turn.' : key === 'incompetence' ? 'It does nothing.' : 'Not playable right now.';
-        h += `<div class="odds" style="border-color:var(--ember)"><b>${esc(C.name)}</b><div>${esc(tr(C.tip))}</div>${why ? `<div class="muted">${why}</div>` : ''}<div class="row"><button class="btn primary" id="play" ${ok ? '' : 'disabled'}>Play</button><button class="btn" id="cinfo">Close</button></div></div>`;
-      }
       h += `<div class="row" style="justify-content:space-between"><span class="num">Army Moves: <b style="color:var(--ember)">${P.armyMoves}</b></span><span class="row"><button class="btn" id="undo" ${UIX.undo.length ? '' : 'disabled'} data-tip="Take back your last action. Only possible while no dice were rolled and no cards were revealed since.">↶ Undo</button><button class="btn primary" id="end">End turn</button></span></div>`;
       h += `<details><summary class="muted">Recent events</summary>${recentLog(6)}</details>`;
       $('#panel').innerHTML = h;
@@ -4831,7 +4892,7 @@ async function humanTurn(s) {
       Q.querySelectorAll('[data-emp]').forEach(b => b.onclick = () => act(() => empower(u, b.dataset.emp)));
       Q.querySelectorAll('[data-boost]').forEach(b => b.onchange = () => { UIX.pending[b.dataset.boost] = b.checked; });
       on('#cinfo', () => { UIX.cardInfo = null; render(); });
-      on('#play', async () => {
+      const playSelected = async () => {
         const { key, boss } = UIX.cardInfo; UIX.cardInfo = null;
         if (boss) {
           let ch = {};
@@ -4849,9 +4910,19 @@ async function humanTurn(s) {
         let ch = {};
         if (choices && choices.length) { ch = await choose(CARDS[key].name, esc(tr(CARDS[key].tip)), choices.map(c => ({ label: c.label, v: c }))); if (!ch) { render(); return; } }
         act(() => playCard(s, key, ch));
-      });
+      };
+      on('#play', playSelected);
       Q.querySelectorAll('[data-t]').forEach(b => b.onclick = () => { UIX.pending = { ...UIX.targets[+b.dataset.t] }; render(); });
-      Q.querySelectorAll('[data-card]').forEach(b => b.onclick = () => { const [t, k] = b.dataset.card.split(':'); UIX.cardInfo = { key: k, boss: t === 'b' }; render(); });
+      Q.querySelectorAll('[data-card]').forEach(b => b.onclick = () => {
+        const [t, k] = b.dataset.card.split(':'); const boss = t === 'b';
+        UIX.cardInfo = { key: k, boss }; render();
+        const { ok, why } = cardWhy(s, k, boss);
+        const nl = LANG.cur === 'nl';
+        const sh = sheet(`<div class="card-view">${cardFace(k, { kind: boss ? 'boss' : 'card', size: 'l', s })}<div class="cv-side">${why ? `<div class="muted">${why}</div>` : ''}<button class="btn primary" id="cvplay" ${ok ? '' : 'disabled'}>${nl ? 'Spelen' : 'Play'}</button><button class="btn" id="cvclose">${nl ? 'Sluiten' : 'Close'}</button></div></div>`, { dismiss: true });
+        sh.el.classList.add('card-sheet');
+        sh.el.querySelector('#cvclose').onclick = () => { sh.close(); UIX.cardInfo = null; render(); };
+        sh.el.querySelector('#cvplay').onclick = () => { sh.close(); playSelected(); };
+      });
     };
     UIX.onBoard = async (node, unitId) => {
       UIX.confirmEnd = false;
@@ -5010,6 +5081,75 @@ function boardTap(e) {
 }
 
 
+
+
+// ---------- card faces ----------
+const TYPE_ICON = { Champion: '👑', Upgrade: '🏛️', Equipment: '⚙️', Magic: '✨', Action: '⚡', 'Common Action': '⚔️', Boss: '🎩', Event: '📜' };
+function cardInfo(key, kind) {
+  if (kind === 'boss') { const C = BOSS_CARDS[key]; return { C, name: C.name, type: 'Boss', color: '#f0a63a', dark: '#6b4512', art: artFor('boss-' + key), army: 'Boss' }; }
+  if (kind === 'event') { const C = EVENTS[key]; return { C, name: C.name, type: 'Event', color: '#7ea6ff', dark: '#22345e', art: artFor('event-' + key), army: LANG.cur === 'nl' ? 'Kasteel' : 'Castle' }; }
+  const C = CARDS[key], A = ARMIES[C.army];
+  return { C, name: C.name, type: C.type, color: A ? A.color : '#d9c99a', dark: A ? A.dark : '#5c5236', art: artFor('card-' + key), army: A ? A.name : (LANG.cur === 'nl' ? 'Alle legers' : 'Every army') };
+}
+function cardEmblem(key, kind, I) {
+  let g = TYPE_ICON[I.type] || '🃏';
+  if (kind === 'card' && I.C.champ) g = ARMIES[I.C.army].units.champ.glyph;
+  else if (kind === 'card' && I.C.equip && EQUIP[I.C.equip]) g = EQUIP[I.C.equip].glyph;
+  else if (kind === 'event' && BUILDING_GLYPH[key]) g = BUILDING_GLYPH[key];
+  else if (kind === 'event' && I.C.om) g = '🛡️';
+  return g;
+}
+function costBadges(key, kind, s) {
+  if (kind !== 'card') return kind === 'boss' ? `<span class="cb free">${LANG.cur === 'nl' ? 'gratis' : 'free'}</span>` : '';
+  const g = s !== undefined && s !== null ? cardGold(s, key) : CARDS[key].gold || 0, m = s !== undefined && s !== null ? cardMagic(s, key) : CARDS[key].magic || 0;
+  let h = '';
+  if (g) h += `<span class="cb gold" title="gold">${g}</span>`;
+  if (m) h += `<span class="cb magic" title="magic">${m}</span>`;
+  return h || `<span class="cb free">0</span>`;
+}
+const WHEN_TXT = { turn: ['Your turn', 'Jouw beurt'], buy: ['Buy phase', 'Koopfase'], react: ['Reaction', 'Reactie'], bid: ['Boss vote', 'Boss-stemming'] };
+// size: 's' hand thumbnail, 'm' with text, 'l' full card
+function cardFace(key, o) {
+  o = o || {};
+  const kind = o.kind || 'card', I = cardInfo(key, kind), nl = LANG.cur === 'nl' ? 1 : 0;
+  const art = I.art ? `<img src="${I.art}" alt="">` : `<span class="emb">${cardEmblem(key, kind, I)}</span>`;
+  const when = kind === 'card' ? WHEN_TXT[I.C.when] : null;
+  const sub = kind === 'card' ? `${esc(I.type)}${I.C.fizzle ? ' · Fizzle' : ''}` : esc(I.type);
+  const text = o.size === 's' ? '' : `<div class="cf-text">${esc(tr(I.C.tip))}</div>`;
+  const chips = o.size === 'l' && when ? `<div class="cf-when">${when[nl]}${I.C.react && I.C.when !== 'react' ? ' · ' + WHEN_TXT.react[nl] : ''}</div>` : '';
+  return `<div class="cface cf-${o.size || 's'} ${o.exh ? 'exh' : ''} ${o.ready ? 'ready' : ''} ${o.sel ? 'sel' : ''} ${kind}" style="--cc:${I.color};--cd:${I.dark}">
+    <div class="cf-top"><span class="cf-name">${esc(I.name)}</span><span class="cf-cost">${costBadges(key, kind, o.s)}</span></div>
+    <div class="cf-art">${art}</div>
+    <div class="cf-type"><span>${TYPE_ICON[I.type] || ''} ${sub}</span>${o.exh ? `<span class="cf-flag">${nl ? 'uitgeput' : 'exhausted'}</span>` : o.ready ? `<span class="cf-flag ok">${nl ? 'speelbaar' : 'ready'}</span>` : ''}</div>
+    ${chips}${text}
+    ${o.size === 'l' ? `<div class="cf-army">${esc(I.army)}</div>` : ''}
+  </div>`;
+}
+function cardWhy(s, key, boss) {
+  const P = S.ps[s], C = boss ? BOSS_CARDS[key] : CARDS[key];
+  const ok = boss ? bossPlayable(s, key) : cardPlayable(s, key);
+  let why = '';
+  if (!ok && !boss) {
+    if (C.when === 'buy') why = 'Used in the Buy phase.';
+    else if (C.when === 'react') why = 'You\'ll be asked to play it at the right moment (for example just before a battle).';
+    else if (C.when === 'bid') why = 'Played during the Boss vote.';
+    else if (!inHandReady(s, key)) why = 'Exhausted until next turn.';
+    else if (cardGold(s, key) > P.gold) why = 'Not enough gold.';
+    else if (cardMagic(s, key) > P.magic) why = 'Not enough magic.';
+    else if (needsCaster(key) && !hasCaster(s)) why = 'Needs a Caster in play.';
+    else why = 'No valid target right now.';
+  }
+  if (!ok && boss) why = BOSS_CARDS[key].timing === 'beforeTurns' ? 'Played automatically: you\'ll be asked before the first player\'s turn.' : key === 'incompetence' ? 'It does nothing.' : 'Not playable right now.';
+  return { ok, why };
+}
+function cardThumb(key, kind) { const I = cardInfo(key, kind || 'card'); return `<span class="cthumb" style="--cc:${I.color};--cd:${I.dark}">${I.art ? `<img src="${I.art}" alt="">` : cardEmblem(key, kind || 'card', I)}</span>`; }
+async function pickCard(title, text, keys, kind) {
+  const gen = GEN;
+  return new Promise(res => {
+    const sh = sheet(`<h2>${esc(title)}</h2>${text ? `<p class="muted" style="margin:0">${esc(text)}</p>` : ''}<div class="card-grid">${keys.map((k, i) => `<button class="cardbtn" data-i="${i}" aria-label="${esc((kind === 'boss' ? BOSS_CARDS : CARDS)[k].name)}">${cardFace(k, { kind: kind || 'card', size: 'm' })}</button>`).join('')}</div>`);
+    sh.el.querySelectorAll('[data-i]').forEach(b => b.onclick = () => { sh.close(); res(keys[+b.dataset.i]); });
+  }).then(v => { guard(gen); return v; });
+}
 
 // ---------- real dice: the player rolls and taps in what came up ----------
 async function humanPhysRoll(q) {
@@ -5243,7 +5383,7 @@ const setupState = (() => {
 function renderSetup() {
   const sv = loadSave();
   const champ = a => glyphHtml(a + '-champ', ARMIES[a].units.champ.glyph);
-  let h = `<div class="masthead"><div class="label">Unofficial companion for Storm the Castle!</div><h1>Keepbreaker</h1><p>Lead a Dark Force army against the castle. Play solo against AI rivals, or pass one device around the table.</p></div>`;
+  let h = `<div class="masthead"><div class="label">${LANG.cur === 'nl' ? 'Belegering voor één toestel' : 'A siege game for one device'}</div><h1>Keepbreaker</h1><p>Lead a Dark Force army against the castle. Play solo against AI rivals, or pass one device around the table.</p></div>`;
   h += `<div class="lang-row"><span class="label">${LANG.cur === 'nl' ? 'Uitleg en tooltips' : 'Explanations & tooltips'}</span><div class="seg" style="min-width:220px">${[['en', 'English'], ['nl', 'Nederlands']].map(([k, l]) => `<button data-lang="${k}" aria-pressed="${LANG.cur === k}">${l}</button>`).join('')}</div></div>`;
   h += `<button class="btn block tut-btn" id="tutb">🎓 ${LANG.cur === 'nl' ? 'Begeleid eerste spel' : 'Guided first game'}<span class="muted" style="font-size:13px;margin-left:6px">${LANG.cur === 'nl' ? 'solo, introductieregels, met uitleg' : 'solo, intro rules, with tips'}</span></button>`;
   if (sv && !sv.over) h += `<button class="btn primary block" id="resume">Resume game · turn ${sv.turn} · ${PHASE_NAMES[sv.phase] || ''}</button>`;
@@ -5401,11 +5541,12 @@ function showRules() {
   sh.el.querySelector('#cl').onclick = sh.close;
 }
 function showAbout() {
-  const sh = sheet(`<h2>About</h2>
-    <p style="margin:0;line-height:1.45">An unofficial, fan-made way to play the board game <i>Storm the Castle!</i> (Giant Goblin Games, 2013) on a phone or tablet, using the rulebook's turn structure, board, combat and solo/2/3-player variants.</p>
-    <p style="margin:0;line-height:1.45" class="muted">Unit stats, every Power Card, the Boss deck, the 54 Events and the defenders' spells follow the printed components, summarised in our own words. Artwork and branding are original to this app. Siege is treated as a label that cards refer to.</p>
-    <p style="margin:0;line-height:1.45" class="muted">Simplifications: the castle defenders are run automatically (aiming at whoever threatens the Keep most); Counterspell can't cancel a Remain-in-Play card after it's in play; a few "any time" cards (Sabotage!, Slow, Arcane Illusions) are played on your own turn or when your unit is attacked.</p>
-    <button class="btn block" id="cl">Close</button>`, { dismiss: true });
+  const nl = LANG.cur === 'nl';
+  const sh = sheet(`<h2>${nl ? 'Over deze app' : 'About'}</h2>
+    <p style="margin:0;line-height:1.45">${nl ? 'Keepbreaker is een privé-app voor persoonlijk gebruik: speel een bordspel-belegering op een telefoon of tablet, solo tegen AI-legers of met meerdere spelers op één toestel.' : 'Keepbreaker is a private app for personal use: play a board-game siege on a phone or tablet, solo against AI armies or with several players sharing one device.'}</p>
+    <p style="margin:0;line-height:1.45" class="muted">${nl ? 'Kaartteksten zijn in eigen woorden samengevat. De vormgeving is eigen aan deze app; je kunt ze vervangen door je eigen tekeningen. Siege is een label waar kaarten naar verwijzen.' : 'Card texts are summarised in our own words. The look is original to this app, and you can replace it with your own artwork. Siege is a label that cards refer to.'}</p>
+    <p style="margin:0;line-height:1.45" class="muted">${nl ? 'Vereenvoudigingen: Counterspell kan een kaart die al in het spel blijft niet meer annuleren; enkele "op elk moment"-kaarten (Sabotage!, Slow, Arcane Illusions) speel je in je eigen beurt of wanneer je eenheid aangevallen wordt.' : 'Simplifications: Counterspell can\'t cancel a Remain-in-Play card after it\'s in play; a few "any time" cards (Sabotage!, Slow, Arcane Illusions) are played on your own turn or when your unit is attacked.'}</p>
+    <button class="btn block" id="cl">${nl ? 'Sluiten' : 'Close'}</button>`, { dismiss: true });
   sh.el.querySelector('#cl').onclick = sh.close;
 }
 
