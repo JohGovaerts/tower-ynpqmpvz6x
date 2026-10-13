@@ -4130,7 +4130,7 @@ function unitArtKey(u) { return u.owner === 'D' ? (HEROES[u.type] ? 'hero-' : 'd
 function artFor(key) { return PREF.art === false ? null : ART.map[key] || null; }
 function probeArt(key) {
   return new Promise(res => {
-    const exts = ['svg', 'png'];
+    const exts = ['svg', 'png', 'webp', 'jpg'];
     const next = i => {
       if (i >= exts.length) return res(null);
       const url = `assets/${/^(card|boss|event)-/.test(key) ? 'cards/' : key.startsWith('bldg-') ? 'buildings/' : ['board', 'ladder', 'wall', 'wall-keep'].includes(key) ? '' : 'tokens/'}${key}.${exts[i]}`;
